@@ -136,7 +136,7 @@ const ModelComparisonBarChart = ({ data, models, activeModels, isDarkMode }: Bar
             }`}
             style={{ 
               backgroundColor: colors[index % colors.length],
-              color: isDarkMode ? 'white' : '#333'
+              color: isDarkMode ? '#333' : 'white'
             }}
             onClick={() => handleModelToggle(model)}
           >
@@ -145,7 +145,7 @@ const ModelComparisonBarChart = ({ data, models, activeModels, isDarkMode }: Bar
         ))}
       </div>
       
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height={300}>
         <BarChart
           data={transformedData}
           margin={{

@@ -30,8 +30,8 @@ const formatDifficultyHeader = (label: string): JSX.Element => {
     const [difficulty, metric] = label.split(' ');
     return (
       <div className="flex flex-col items-center justify-center">
-        <span className="text-sm sm:text-base md:text-lg font-extrabold">{difficulty}</span>
-        <span className="text-xs sm:text-sm font-medium">{metric}</span>
+        <span className="text-xs sm:text-sm md:text-base font-extrabold">{difficulty}</span>
+        <span className="text-xs sm:text-xs font-medium">{metric}</span>
       </div>
     );
   }
@@ -42,7 +42,7 @@ const formatDifficultyHeader = (label: string): JSX.Element => {
     return (
       <div className="flex flex-col items-center justify-center">
         {lines.map((line, index) => (
-          <span key={index} className="text-sm sm:text-base md:text-lg font-extrabold leading-tight">
+          <span key={index} className="text-xs sm:text-sm md:text-base font-extrabold leading-tight">
             {line}
           </span>
         ))}
@@ -82,7 +82,7 @@ const TableHeader: FC<TableHeaderProps> = ({
     <th 
       key={header.key} 
       data-key={header.key}
-      className={`relative px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-extrabold uppercase tracking-wider font-jetbrains-mono group ${alignment} cursor-pointer ${
+      className={`relative px-2 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-xs md:text-sm lg:text-base font-extrabold uppercase tracking-wider font-jetbrains-mono group ${alignment} cursor-pointer ${
         // Only apply base background colors if getBackgroundColor doesn't return a custom color
         bgColor ? '' : (isDarkMode 
           ? 'text-slate-300 bg-[#121c2b]' 
@@ -133,7 +133,7 @@ const TableHeader: FC<TableHeaderProps> = ({
             {/* Invisible spacer to balance the sort indicator on the right */}
             <span className="w-6 h-6 shrink-0 invisible"></span>
             <span 
-              className="text-ellipsis overflow-hidden whitespace-nowrap block text-lg flex items-center justify-center flex-1" 
+              className="text-ellipsis overflow-hidden whitespace-nowrap block text-xs sm:text-sm md:text-base lg:text-lg flex items-center justify-center flex-1" 
               style={{ 
                 maxWidth: `${getContentWidth(columnWidths[header.key] || (
                   currentTask === 'code summarization' || currentTask === 'code review' ? 250 :
@@ -150,7 +150,7 @@ const TableHeader: FC<TableHeaderProps> = ({
         ) : (
           /* For left-aligned columns (model), use normal layout */
           <span 
-            className="text-ellipsis overflow-hidden whitespace-nowrap block text-lg flex items-center justify-center" 
+            className="text-ellipsis overflow-hidden whitespace-nowrap block text-xs sm:text-sm md:text-base lg:text-lg flex items-center justify-center" 
             style={{ 
               maxWidth: `${getContentWidth(columnWidths[header.key] || (
                 currentTask === 'code summarization' || currentTask === 'code review' ? 250 :

@@ -107,7 +107,7 @@ const ModelComparisonRadarChart = ({ data, models, activeModels, isDarkMode }: R
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full" style={{ minHeight: '350px' }}>
       <div className="flex justify-center mb-2 flex-wrap gap-1 sm:gap-2">
         {models.map((model, index) => (
           <button
@@ -119,7 +119,7 @@ const ModelComparisonRadarChart = ({ data, models, activeModels, isDarkMode }: R
             }`}
             style={{ 
               backgroundColor: colors[index % colors.length], 
-              color: isDarkMode ? 'white' : '#333',
+              color: isDarkMode ? '#333' : 'white',
               maxWidth: '120px',
               fontSize: '10px'
             }}
@@ -131,7 +131,7 @@ const ModelComparisonRadarChart = ({ data, models, activeModels, isDarkMode }: R
         ))}
       </div>
       
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height={300}>
         <RadarChart
           cx="50%"
           cy="50%"
