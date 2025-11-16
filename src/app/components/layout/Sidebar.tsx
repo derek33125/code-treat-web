@@ -201,7 +201,7 @@ const Sidebar: FC<SidebarProps> = ({
       </nav>
 
       {/* Dark/Light Mode Toggle */}
-      <div className="flex-shrink-0 p-1 px-2 xl:px-6 border-t border-slate-200 dark:border-blue-500/20">
+      <div className="flex-shrink-0 p-1 px-2 xl:px-6 pb-6 xl:pb-1 border-t border-slate-200 dark:border-blue-500/20">
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className={`w-full flex items-center justify-center gap-2 xl:gap-3 px-2 xl:px-6 py-2 xl:py-4 rounded-lg ${
