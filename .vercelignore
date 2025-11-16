@@ -8,14 +8,6 @@ scripts/
 *.md
 todo.md
 
-# Large data directories (local only)
-data/
-new_dataset/
-
-# Build artifacts
-.next/server/chunks
-.next/static/chunks
-
 # OS files
 .DS_Store
 Thumbs.db
