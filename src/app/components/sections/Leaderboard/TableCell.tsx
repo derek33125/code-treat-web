@@ -53,7 +53,9 @@ const TableCell: FC<TableCellProps> = ({
 }) => {
   const alignment = getColumnAlignment(header.key);
   const numericStyles = getNumericStyles(header.key);
-  const stickyStyles = getStickyStyles(header.key);
+  const baseStickyStyles = getStickyStyles(header.key);
+  // Disable sticky on mobile (screens smaller than md breakpoint) - replace 'sticky' with 'md:sticky'
+  const stickyStyles = baseStickyStyles.replace('sticky', 'md:sticky');
   // Check if current row has data leakage (only if detection is enabled)
   const hasDataLeakageForRow = () => {
     if (!value) return false;
@@ -111,7 +113,7 @@ const TableCell: FC<TableCellProps> = ({
       style={{ 
         width: `${columnWidths[header.key] || 100}px`,
         transition: resizingColumn ? 'none' : 'width 0.1s ease',
-        left: getStickyLeftPosition(header.key),
+        left: baseStickyStyles ? getStickyLeftPosition(header.key) : undefined,
         verticalAlign: 'middle'
       }}
     >

@@ -70,7 +70,9 @@ const TableHeader: FC<TableHeaderProps> = ({
   isDarkMode
 }) => {
   const alignment = isColumnCentered(header.key) ? 'justify-center' : 'justify-start';
-  const stickyStyles = getStickyStyles(header.key);
+  const baseStickyStyles = getStickyStyles(header.key);
+  // Disable sticky on mobile (screens smaller than md breakpoint) - replace 'sticky' with 'md:sticky'
+  const stickyStyles = baseStickyStyles.replace('sticky', 'md:sticky');
   const bgColor = getBackgroundColor(header.key, true);
   
   // Calculate column width
@@ -97,7 +99,7 @@ const TableHeader: FC<TableHeaderProps> = ({
       style={{ 
         width: columnWidth,
         transition: resizingColumn ? 'none' : 'width 0.1s ease',
-        left: getStickyLeftPosition(header.key)
+        left: baseStickyStyles ? getStickyLeftPosition(header.key) : undefined
       }}
       onClick={() => {
         // Enable sorting for all numeric columns including difficulty-based metrics and model names
