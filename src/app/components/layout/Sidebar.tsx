@@ -245,7 +245,7 @@ const Sidebar: FC<SidebarProps> = ({
               className="w-16 h-16 mr-4"
               isDarkMode={isDarkMode}
             />
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
               Code TREAT
             </span>
           </button>

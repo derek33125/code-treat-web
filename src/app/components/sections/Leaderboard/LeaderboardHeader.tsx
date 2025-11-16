@@ -84,7 +84,7 @@ const LeaderboardHeader: FC<LeaderboardHeaderProps> = ({
         </div>
         
         {/* Buttons Section - Responsive Layout */}
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 sm:gap-4">
+        <div className="flex flex-row flex-wrap justify-center items-center gap-2 sm:gap-4">
           {/* Model Comparison button - Only show for overall task */}
           {currentTask === 'overall' && (
             <button
@@ -94,7 +94,7 @@ const LeaderboardHeader: FC<LeaderboardHeaderProps> = ({
                 setViewMode(viewMode === 'model-comparison' ? 'table' : 'model-comparison');
               }}
               type="button"
-              className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-0"
+              className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-[100px] sm:min-w-[120px]"
               style={{
                 background: viewMode === 'model-comparison' 
                   ? 'linear-gradient(to right, #ec4899, #be185d)' 
@@ -125,7 +125,7 @@ const LeaderboardHeader: FC<LeaderboardHeaderProps> = ({
           {currentTask !== 'overall' && (
             <button
               onClick={() => setIsComparisonModalOpen(true)}
-              className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-0"
+              className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-[100px] sm:min-w-[120px]"
               style={{
                 background: 'linear-gradient(to right, #6366f1, #8b5cf6)',
                 border: 'none',
@@ -153,7 +153,7 @@ const LeaderboardHeader: FC<LeaderboardHeaderProps> = ({
                   setViewMode('table');
                 }
               }}
-              className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-0"
+              className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg min-w-[100px] sm:min-w-[120px]"
               style={{
                 background: 
                   viewMode === 'table' 
@@ -211,7 +211,7 @@ const LeaderboardHeader: FC<LeaderboardHeaderProps> = ({
             </button>
           ) : (
             // Table view - Export as CSV
-            <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer min-w-0"
+            <div className="flex items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg text-white font-medium text-sm sm:text-lg transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer min-w-[100px] sm:min-w-[120px]"
                  style={{
                    background: 'linear-gradient(to right, #10b981, #14b8a6)'
                  }}>

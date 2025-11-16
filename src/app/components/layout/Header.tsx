@@ -23,7 +23,7 @@ const Header: FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, currentSection, on
                 className="w-10 h-10 mr-3"
                 isDarkMode={isDarkMode}
               />
-              <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+              <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
                 Code TREAT
               </span>
             </button>

@@ -13,7 +13,7 @@ const Hero: FC<HeroProps> = ({ isDarkMode, onNavigateToTask }) => {
     <main className="relative flex-grow flex flex-col items-center justify-center text-center px-2 sm:px-4 pb-8 sm:pb-16" id="home">
       <div className="relative mt-[120px] sm:mt-[180px]">
         <motion.h1 
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-8 sm:mb-12 md:mb-16"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

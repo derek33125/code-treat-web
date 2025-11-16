@@ -75,7 +75,7 @@ const TableHeader: FC<TableHeaderProps> = ({
   
   // Calculate column width
   const columnWidth = (currentTask === 'overall' && header.key === 'model') 
-    ? '80%' // Give model column 80% of table width in overall task
+    ? `${Math.max(columnWidths[header.key] || 300, 300)}px` // Use responsive width for model column, minimum 300px
     : `${columnWidths[header.key] || 100}px`;
 
   return (
@@ -166,13 +166,13 @@ const TableHeader: FC<TableHeaderProps> = ({
           </span>
         )}
         {/* Sort indicator */}
-        <span className={`ml-2 shrink-0 min-w-[20px] transition-all duration-200 ${
+        <span className={`ml-1 shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-all duration-200 ${
           sortConfig && sortConfig.key === header.key && header.key !== 'rank'
             ? 'text-amber-500 opacity-100 scale-110' 
             : isDarkMode ? 'text-slate-400 opacity-60 group-hover:text-blue-400 group-hover:opacity-80' : 'text-slate-500 opacity-60 group-hover:text-blue-500 group-hover:opacity-80'
         }`}>
           {sortConfig && sortConfig.key === header.key && header.key !== 'rank' ? (
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
               {sortConfig.direction === 'asc' ? (
                 <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
               ) : (
@@ -180,7 +180,7 @@ const TableHeader: FC<TableHeaderProps> = ({
               )}
             </svg>
           ) : (
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-full h-full" fill="currentColor" viewBox="0 0 20 20">
               <path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z" />
             </svg>
           )}
@@ -188,15 +188,15 @@ const TableHeader: FC<TableHeaderProps> = ({
       </div>
       {/* Resize handle - a more subtle line that doesn't extend to the edges */}
       <div 
-        className={`absolute right-0 top-0 h-full ${header.key === 'rank' || (currentTask === 'overall' && header.key === 'model') ? '' : 'cursor-col-resize'} flex items-center justify-center`}
-        onMouseDown={(e) => header.key !== 'rank' && !(currentTask === 'overall' && header.key === 'model') && handleResizeStart(e, header.key)}
-        onTouchStart={(e) => header.key !== 'rank' && !(currentTask === 'overall' && header.key === 'model') && handleTouchResizeStart(e, header.key)}
+        className={`absolute right-0 top-0 h-full ${header.key === 'rank' ? '' : 'cursor-col-resize'} flex items-center justify-center`}
+        onMouseDown={(e) => header.key !== 'rank' && handleResizeStart(e, header.key)}
+        onTouchStart={(e) => header.key !== 'rank' && handleTouchResizeStart(e, header.key)}
         onClick={(e) => e.stopPropagation()} // Prevent sort on resize handle click
       >
         {resizingColumn === header.key ? (
           <div className={`h-[60%] w-px ${isDarkMode ? 'bg-blue-400' : 'bg-blue-500'}`}></div>
         ) : (
-          <div className={`h-[60%] w-px ${(currentTask === 'overall' && header.key === 'model') ? 'hidden' : isDarkMode ? 'bg-gray-600/60' : 'bg-gray-300'}`}></div>
+          <div className={`h-[60%] w-px ${header.key === 'rank' ? 'hidden' : isDarkMode ? 'bg-gray-600/60' : 'bg-gray-300'}`}></div>
         )}
         {/* Add a slight expansion effect for easier targeting */}
         <div className="absolute inset-y-0 -inset-x-1.5 hover:bg-blue-400/10 group-hover:bg-blue-400/5"></div>
