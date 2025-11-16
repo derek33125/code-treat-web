@@ -2,14 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-// Directories to remove
+// Directories to remove - only actual cache, not data needed by the app
 const directoriesToRemove = [
-  '.next',
-  '.vercel',
-  'node_modules/.cache',
   '.next/cache',
-  '.next/server/chunks',
-  '.next/static/chunks'
+  '.vercel',
+  'node_modules/.cache'
 ];
 
 console.log('Cleaning cache before build...');

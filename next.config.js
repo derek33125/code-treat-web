@@ -10,12 +10,8 @@ const nextConfig = {
       'node_modules/@swc/core-linux-x64-musl',
       'node_modules/@esbuild/linux-x64',
       '.next/cache/**/*',
-      '.next/server/chunks/**/*',
       'node_modules/.cache/**/*',
       '.vercel/**/*',
-      'scripts/**/*',
-      'data/**/*',
-      'new_dataset/**/*'
     ]
   },
   
