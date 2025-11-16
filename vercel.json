@@ -5,7 +5,7 @@
   "framework": "nextjs",
   "functions": {
     "src/app/api/**/*.ts": {
-      "runtime": "nodejs18.x",
+      "runtime": "@vercel/node@3.0.7",
       "excludeFiles": "{.next/cache/**,node_modules/.cache/**,.vercel/**,scripts/**,data/**,new_dataset/**}"
     }
   },
