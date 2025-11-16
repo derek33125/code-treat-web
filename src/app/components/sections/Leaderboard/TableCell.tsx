@@ -55,7 +55,10 @@ const TableCell: FC<TableCellProps> = ({
   const numericStyles = getNumericStyles(header.key);
   const baseStickyStyles = getStickyStyles(header.key);
   // Disable sticky on mobile (screens smaller than md breakpoint) - replace 'sticky' with 'md:sticky'
-  const stickyStyles = baseStickyStyles.replace('sticky', 'md:sticky');
+  // Also replace left-0 with responsive left positioning using CSS custom property
+  const stickyStyles = baseStickyStyles
+    .replace('sticky', 'md:sticky')
+    .replace('left-0', 'md:left-[var(--sticky-left)]');
   // Check if current row has data leakage (only if detection is enabled)
   const hasDataLeakageForRow = () => {
     if (!value) return false;
@@ -113,9 +116,10 @@ const TableCell: FC<TableCellProps> = ({
       style={{ 
         width: `${columnWidths[header.key] || 100}px`,
         transition: resizingColumn ? 'none' : 'width 0.1s ease',
-        left: baseStickyStyles ? getStickyLeftPosition(header.key) : undefined,
-        verticalAlign: 'middle'
-      }}
+        verticalAlign: 'middle',
+        // Use CSS custom property for responsive left positioning
+        '--sticky-left': getStickyLeftPosition(header.key)
+      } as React.CSSProperties & { '--sticky-left': string }}
     >
       <div className={`w-full ${alignment} font-bold flex items-center ${
         isColumnCentered(header.key) ? 'justify-center' : 'justify-start'

@@ -72,7 +72,10 @@ const TableHeader: FC<TableHeaderProps> = ({
   const alignment = isColumnCentered(header.key) ? 'justify-center' : 'justify-start';
   const baseStickyStyles = getStickyStyles(header.key);
   // Disable sticky on mobile (screens smaller than md breakpoint) - replace 'sticky' with 'md:sticky'
-  const stickyStyles = baseStickyStyles.replace('sticky', 'md:sticky');
+  // Also replace left-0 with responsive left positioning using CSS custom property
+  const stickyStyles = baseStickyStyles
+    .replace('sticky', 'md:sticky')
+    .replace('left-0', 'md:left-[var(--sticky-left)]');
   const bgColor = getBackgroundColor(header.key, true);
   
   // Calculate column width
@@ -99,8 +102,9 @@ const TableHeader: FC<TableHeaderProps> = ({
       style={{ 
         width: columnWidth,
         transition: resizingColumn ? 'none' : 'width 0.1s ease',
-        left: baseStickyStyles ? getStickyLeftPosition(header.key) : undefined
-      }}
+        // Use CSS custom property for responsive left positioning
+        '--sticky-left': getStickyLeftPosition(header.key)
+      } as React.CSSProperties & { '--sticky-left': string }}
       onClick={() => {
         // Enable sorting for all numeric columns including difficulty-based metrics and model names
         const sortableColumns = [

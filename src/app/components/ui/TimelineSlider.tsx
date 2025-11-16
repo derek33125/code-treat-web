@@ -242,11 +242,11 @@ export const TimelineSlider: FC<TimelineSliderProps> = ({
           {/* Start Handle with Always-Visible Label */}
           <div className="absolute" style={{ left: `${startPosition}%`, transform: 'translateX(-50%)' }}>
             {/* Always visible date label */}
-            <div className={`absolute bottom-full mb-2 sm:mb-3 left-1/2 transform -translate-x-1/2 px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-base font-semibold whitespace-nowrap ${
+            <div className={`absolute bottom-full mb-2 sm:mb-3 left-1/2 px-1 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-base font-semibold whitespace-nowrap ${
               isDarkMode 
                 ? 'bg-slate-800 text-slate-200 border border-slate-600' 
                 : 'bg-gray-800 text-white'
-            }`}>
+            } ${Math.abs(endPosition - startPosition) < 25 ? 'transform -translate-x-[75%]' : 'transform -translate-x-1/2'}`}>
               {formatDate(tempStartDate)}
               <div className={`absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent ${
                 isDarkMode ? 'border-t-slate-800' : 'border-t-gray-800'
@@ -267,11 +267,11 @@ export const TimelineSlider: FC<TimelineSliderProps> = ({
           {/* End Handle with Always-Visible Label */}
           <div className="absolute" style={{ left: `${endPosition}%`, transform: 'translateX(-50%)' }}>
             {/* Always visible date label */}
-            <div className={`absolute bottom-full mb-2 sm:mb-3 left-1/2 transform -translate-x-1/2 px-2 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-base font-semibold whitespace-nowrap ${
+            <div className={`absolute bottom-full mb-2 sm:mb-3 left-1/2 px-1 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-base font-semibold whitespace-nowrap ${
               isDarkMode 
                 ? 'bg-slate-800 text-slate-200 border border-slate-600' 
                 : 'bg-gray-800 text-white'
-            }`}>
+            } ${Math.abs(endPosition - startPosition) < 25 ? 'transform -translate-x-[25%]' : 'transform -translate-x-1/2'}`}>
               {formatDate(tempEndDate)}
               <div className={`absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent ${
                 isDarkMode ? 'border-t-slate-800' : 'border-t-gray-800'

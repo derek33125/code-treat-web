@@ -20,7 +20,7 @@ const Hero: FC<HeroProps> = ({ isDarkMode, onNavigateToTask }) => {
         >
           Code TREAT
         </motion.h1>
-        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-4 max-w-lg sm:max-w-none mx-auto">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-2 sm:gap-4 w-full max-w-4xl mx-auto">
           <motion.button
             onClick={() => setIsPaperModalOpen(true)}
             className={`relative inline-flex items-center px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg

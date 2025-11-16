@@ -242,10 +242,10 @@ const Sidebar: FC<SidebarProps> = ({
             aria-label="Navigate to home page"
           >
             <WebpageIcon 
-              className="w-16 h-16 mr-4"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mr-3 sm:mr-4"
               isDarkMode={isDarkMode}
             />
-            <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
               Code TREAT
             </span>
           </button>
