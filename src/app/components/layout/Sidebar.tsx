@@ -32,7 +32,7 @@ const Sidebar: FC<SidebarProps> = ({
   const sidebarContent = (
     <div className={`h-screen flex flex-col ${isDarkMode ? 'bg-[#0f1729]' : 'bg-white'} border-r ${isDarkMode ? 'border-blue-500/20' : 'border-slate-200'}`}>
       {/* Header */}
-      <div className="flex-shrink-0 p-4 xl:p-6 border-b border-slate-200 dark:border-blue-500/20">
+      <div className="flex-shrink-0 p-2 xl:p-6 border-b border-slate-200 dark:border-blue-500/20">
         <div className="flex items-center justify-between">
           <motion.button 
             onClick={() => onSectionChange('overview')}
@@ -67,13 +67,13 @@ const Sidebar: FC<SidebarProps> = ({
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-3 xl:p-6 pb-2 custom-scrollbar min-h-0">
+      <nav className="flex-1 overflow-y-auto p-2 xl:p-6 pb-1 custom-scrollbar min-h-0">
         <ul className="space-y-1 xl:space-y-2">
           {/* Overview */}
           <li>
             <motion.button
               onClick={() => onSectionChange('overview')}
-              className={`w-full text-left px-3 xl:px-6 py-2 xl:py-4 rounded-lg font-bold text-lg xl:text-2xl transition-all duration-200 ${
+              className={`w-full text-left px-3 xl:px-6 py-1.5 xl:py-4 rounded-lg font-bold text-base xl:text-2xl transition-all duration-200 ${
                 currentSection === 'overview'
                   ? isDarkMode 
                     ? 'bg-blue-900/30 text-blue-200' 
@@ -97,7 +97,7 @@ const Sidebar: FC<SidebarProps> = ({
           <li>
             <button
               onClick={() => onSectionChange('tasks')}
-              className={`w-full text-left px-3 xl:px-6 py-2 xl:py-4 rounded-lg font-bold text-lg xl:text-2xl transition-colors ${
+              className={`w-full text-left px-3 xl:px-6 py-1.5 xl:py-4 rounded-lg font-bold text-base xl:text-2xl transition-colors ${
                 currentSection === 'tasks'
                   ? isDarkMode 
                     ? 'bg-blue-900/30 text-blue-200' 
@@ -122,7 +122,7 @@ const Sidebar: FC<SidebarProps> = ({
                           onSectionChange('tasks');
                           onTaskChange?.(task as TaskType);
                         }}
-                        className={`w-full text-left px-2 xl:px-4 py-2 xl:py-3 rounded-lg text-sm xl:text-xl transition-colors whitespace-pre-line ${
+                        className={`w-full text-left px-2 xl:px-4 py-1 xl:py-3 rounded-lg text-xs xl:text-xl transition-colors whitespace-pre-line ${
                           currentTask === task && currentSection === 'tasks'
                             ? isDarkMode 
                               ? 'bg-blue-900/50 text-blue-100 font-semibold' 
@@ -152,7 +152,7 @@ const Sidebar: FC<SidebarProps> = ({
           <li>
             <button
               onClick={() => onSectionChange('about')}
-              className={`w-full text-left px-3 xl:px-6 py-2 xl:py-4 rounded-lg font-bold text-lg xl:text-2xl transition-colors ${
+              className={`w-full text-left px-3 xl:px-6 py-1.5 xl:py-4 rounded-lg font-bold text-base xl:text-2xl transition-colors ${
                 currentSection === 'about'
                   ? isDarkMode 
                     ? 'bg-blue-900/30 text-blue-200' 
@@ -170,7 +170,7 @@ const Sidebar: FC<SidebarProps> = ({
           <li>
             <button
               onClick={() => onSectionChange('guide')}
-              className={`w-full text-left px-3 xl:px-6 py-2 xl:py-4 rounded-lg font-bold text-lg xl:text-2xl transition-colors ${
+              className={`w-full text-left px-3 xl:px-6 py-1.5 xl:py-4 rounded-lg font-bold text-base xl:text-2xl transition-colors ${
                 currentSection === 'guide'
                   ? isDarkMode 
                     ? 'bg-blue-900/30 text-blue-200' 
@@ -188,7 +188,7 @@ const Sidebar: FC<SidebarProps> = ({
           <li>
             <a
               href="mailto:ejli@cse.cuhk.edu.hk,lyu@cse.cuhk.edu.hk"
-              className={`w-full text-left px-3 xl:px-6 py-2 xl:py-4 rounded-lg font-bold text-lg xl:text-2xl transition-colors block ${
+              className={`w-full text-left px-3 xl:px-6 py-1.5 xl:py-4 rounded-lg font-bold text-base xl:text-2xl transition-colors block ${
                 isDarkMode 
                   ? 'text-blue-200 hover:bg-blue-900/20' 
                   : 'text-slate-700 hover:bg-slate-50'
@@ -201,10 +201,10 @@ const Sidebar: FC<SidebarProps> = ({
       </nav>
 
       {/* Dark/Light Mode Toggle */}
-      <div className="flex-shrink-0 p-1 px-3 xl:px-6 border-t border-slate-200 dark:border-blue-500/20">
+      <div className="flex-shrink-0 p-1 px-2 xl:px-6 border-t border-slate-200 dark:border-blue-500/20">
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
-          className={`w-full flex items-center justify-center gap-2 xl:gap-3 px-3 xl:px-6 py-3 xl:py-4 rounded-lg ${
+          className={`w-full flex items-center justify-center gap-2 xl:gap-3 px-2 xl:px-6 py-2 xl:py-4 rounded-lg ${
             isDarkMode 
               ? 'bg-[#1a2234]/80 text-blue-200 hover:bg-blue-900/30' 
               : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -283,11 +283,11 @@ const Sidebar: FC<SidebarProps> = ({
             
             {/* Sidebar */}
             <motion.div
-              initial={{ x: -320 }}
+              initial={{ x: -280 }}
               animate={{ x: 0 }}
-              exit={{ x: -320 }}
+              exit={{ x: -280 }}
               transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-              className="xl:hidden fixed left-0 top-0 w-64 sm:w-72 h-screen z-50 shadow-2xl"
+              className="xl:hidden fixed left-0 top-0 w-56 sm:w-64 h-screen z-50 shadow-2xl"
             >
               {sidebarContent}
             </motion.div>
