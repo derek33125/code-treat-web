@@ -67,7 +67,7 @@ const Sidebar: FC<SidebarProps> = ({
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-2 xl:p-6 pb-20 xl:pb-1 custom-scrollbar min-h-0">
+      <nav className="flex-1 overflow-y-auto p-2 xl:p-6 pb-22 xl:pb-1 custom-scrollbar min-h-0">
         <ul className="space-y-1 xl:space-y-2">
           {/* Overview */}
           <li>
@@ -201,7 +201,7 @@ const Sidebar: FC<SidebarProps> = ({
       </nav>
 
       {/* Dark/Light Mode Toggle */}
-      <div className="flex-shrink-0 p-1 px-2 xl:px-6 pb-8 xl:pb-1 border-t border-slate-200 dark:border-blue-500/20">
+      <div className="flex-shrink-0 p-1 px-2 xl:px-6 pb-10 xl:pb-1 border-t border-slate-200 dark:border-blue-500/20">
         <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           className={`w-full flex items-center justify-center gap-2 xl:gap-3 px-2 xl:px-6 py-2 xl:py-4 rounded-lg ${
